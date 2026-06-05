@@ -1,0 +1,131 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items?: FAQItem[];
+}
+
+const defaultFAQ: FAQItem[] = [
+  {
+    question: 'How can I compress an image online?',
+    answer: 'Upload your JPG, PNG, or WebP image, choose a compression level, and download the optimized image instantly — no software installation or account required.',
+  },
+  {
+    question: 'Can I compress images without losing quality?',
+    answer: 'Yes. Our image compressor reduces file size while maintaining excellent visual quality for most images. The Balanced preset is virtually indistinguishable from the original.',
+  },
+  {
+    question: 'What image formats are supported?',
+    answer: 'We support JPG, JPEG, PNG, and WebP image formats for compression — the three most common formats used on the web.',
+  },
+  {
+    question: 'Is this image compressor free to use?',
+    answer: 'Yes. You can compress images online for free without creating an account. There are no hidden costs, no subscription fees, and no usage limits.',
+  },
+  {
+    question: 'How much can an image be compressed?',
+    answer: 'Compression results vary by image type and content, but many images can be reduced by 50% to 90% while retaining good visual quality.',
+  },
+  {
+    question: 'Can I compress images for email attachments?',
+    answer: 'Yes. Compressing images makes them smaller and easier to send as email attachments, reducing upload times and staying within email size limits.',
+  },
+  {
+    question: 'Why should I compress images before uploading them to a website?',
+    answer: 'Compressed images load faster, improve user experience, reduce bandwidth usage, and can help improve search engine rankings by boosting page speed scores.',
+  },
+  {
+    question: 'Can I compress multiple images at once?',
+    answer: 'Yes. Bulk image compression lets you drag and drop multiple images at once, compress them all with one click, and download everything as a single ZIP file.',
+  },
+  {
+    question: 'Are my uploaded images secure?',
+    answer: 'Yes. All compression happens locally in your browser using the Canvas API — your images never leave your device, so they are completely private and secure.',
+  },
+  {
+    question: 'Does image compression help website speed?',
+    answer: 'Yes. Smaller image files load faster, improve Core Web Vitals scores, and provide a better browsing experience for your visitors — which can also benefit SEO.',
+  },
+];
+
+const { items = defaultFAQ } = Astro.props;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map(item => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
+---
+
+<section class="py-20 md:py-28 bg-canvas-soft dark:bg-[#0a0a0a]">
+  <div class="container-page max-w-3xl">
+    <div class="text-center mb-12">
+      <span class="text-xs font-mono uppercase tracking-widest text-mute dark:text-[#666] block mb-3">FAQ</span>
+      <h2
+        class="text-3xl md:text-4xl font-semibold text-ink dark:text-white tracking-tight"
+        style="letter-spacing: -1.28px;"
+      >
+        Frequently asked questions.
+      </h2>
+    </div>
+
+    <div class="space-y-2" id="faq-list">
+      {items.map((item, i) => (
+        <div
+          class="faq-item rounded-lg border border-hairline dark:border-[#1f1f1f] bg-canvas dark:bg-[#111] overflow-hidden"
+          style="box-shadow: var(--shadow-card);"
+        >
+          <button
+            class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left group"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+            id={`faq-btn-${i}`}
+          >
+            <span class="text-sm font-medium text-ink dark:text-white group-hover:text-ink/80 dark:group-hover:text-white/80 transition-colors">
+              {item.question}
+            </span>
+            <svg
+              class="faq-icon w-4 h-4 text-mute dark:text-[#666] shrink-0 transition-transform duration-200"
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div
+            id={`faq-answer-${i}`}
+            role="region"
+            aria-labelledby={`faq-btn-${i}`}
+            class="faq-answer hidden px-5 pb-4"
+          >
+            <p class="text-sm text-body dark:text-[#a1a1a1] leading-relaxed">{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<script>
+  document.querySelectorAll('.faq-item button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answerId = btn.getAttribute('aria-controls')!;
+      const answer   = document.getElementById(answerId)!;
+      const icon     = btn.querySelector<SVGElement>('.faq-icon')!;
+
+      btn.setAttribute('aria-expanded', String(!expanded));
+      answer.classList.toggle('hidden', expanded);
+      icon.style.transform = expanded ? '' : 'rotate(45deg)';
+    });
+  });
+</script>

@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ImageCompressor from '../components/ImageCompressor.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import AdSlot from '../components/AdSlot.astro';
+
+const faqItems = [
+  {
+    question: 'Does Instagram compress images I upload?',
+    answer: 'Yes, Instagram applies its own compression to uploaded images. To minimize double-compression quality loss, upload images that are already close to Instagram\'s target dimensions (1080px wide) and use our Balanced preset before uploading.',
+  },
+  {
+    question: 'What image format is best for social media?',
+    answer: 'JPEG at 80–90% quality is the best format for photographs on social media. For graphics, logos, and text-based images, PNG preserves quality better. Most social platforms don\'t support WebP, so stick to JPEG or PNG.',
+  },
+  {
+    question: 'Will compressing my images before uploading to social media improve quality?',
+    answer: 'Yes. When you upload an uncompressed image, social platforms apply their own compression algorithms which can reduce quality significantly. By pre-compressing to near the platform\'s target size and quality, you control the output quality rather than leaving it to the platform.',
+  },
+  {
+    question: 'What size should images be for Twitter/X?',
+    answer: 'Twitter/X recommends images at 1200×675 px (16:9) for timeline posts, 1600×900 px for header images, and 400×400 px for profile pictures. Keep the file size under 5 MB for all types.',
+  },
+];
+
+const platforms = [
+  { name: 'Instagram', postSize: '1080×1080 (square)', storySize: '1080×1920', maxSize: '< 8 MB' },
+  { name: 'Facebook',  postSize: '1200×630 (landscape)', storySize: '1080×1920', maxSize: '< 4 MB' },
+  { name: 'Twitter/X', postSize: '1200×675 (16:9)', storySize: 'N/A', maxSize: '< 5 MB' },
+  { name: 'LinkedIn',  postSize: '1200×627 (landscape)', storySize: '1080×1920', maxSize: '< 5 MB' },
+  { name: 'Pinterest', postSize: '1000×1500 (2:3)', storySize: '1080×1920', maxSize: '< 20 MB' },
+];
+---
+
+<Layout
+  title="Compress Images for Social Media — Instagram, Facebook, Twitter | ImgCompressor Pro"
+  description="Compress images for social media posting. Optimize photos for Instagram, Facebook, Twitter, LinkedIn, and Pinterest. Reduce size while preserving quality."
+  keywords="compress images for social media, compress image for discord, instagram image compressor, facebook image size reducer, twitter image compressor, social media image optimizer, compress photo for instagram, reduce image size for discord, compress image for linkedin, social media photo compressor"
+>
+  <Nav />
+  <main>
+    <HeroSection
+      headline="Compress images for social media."
+      subheadline="Pre-compress your photos before uploading to Instagram, Facebook, or Twitter to take control of quality and avoid platform over-compression."
+      cta="Optimize for Social"
+    />
+
+    <AdSlot slot="leaderboard" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+    <div class="bg-canvas-soft dark:bg-[#0a0a0a]"><ImageCompressor /></div>
+
+    <section class="py-16 bg-canvas dark:bg-[#111] border-y border-hairline dark:border-[#1f1f1f]">
+      <div class="container-page max-w-4xl">
+        <h2 class="text-2xl font-semibold text-ink dark:text-white mb-5 tracking-tight" style="letter-spacing: -0.6px;">
+          Social media image size guide.
+        </h2>
+        <div class="space-y-4 text-sm text-body dark:text-[#a1a1a1] leading-relaxed mb-8">
+          <p>
+            Every social media platform applies its own image compression and resizing when you upload photos.
+            By pre-compressing your images to near the platform's preferred format before uploading, you can
+            significantly improve the final displayed quality on your posts.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto rounded-lg border border-hairline dark:border-[#1f1f1f]" style="box-shadow: var(--shadow-card);">
+          <table class="w-full text-xs border-collapse">
+            <thead>
+              <tr class="bg-canvas-soft dark:bg-[#0d0d0d] border-b border-hairline dark:border-[#1f1f1f]">
+                <th class="text-left py-3 px-4 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Platform</th>
+                <th class="text-left py-3 px-4 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Post Size</th>
+                <th class="text-left py-3 px-4 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Story/Reel</th>
+                <th class="text-left py-3 px-4 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Max Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              {platforms.map((p, i) => (
+                <tr class:list={['border-b border-hairline dark:border-[#1f1f1f]', i % 2 === 0 ? 'bg-canvas dark:bg-[#111]' : 'bg-canvas-soft dark:bg-[#0d0d0d]']}>
+                  <td class="py-3 px-4 font-medium text-ink dark:text-white">{p.name}</td>
+                  <td class="py-3 px-4 text-body dark:text-[#a1a1a1] font-mono">{p.postSize}</td>
+                  <td class="py-3 px-4 text-body dark:text-[#a1a1a1] font-mono">{p.storySize}</td>
+                  <td class="py-3 px-4 text-body dark:text-[#a1a1a1] font-mono">{p.maxSize}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <FAQSection items={faqItems} />
+    <AdSlot slot="banner" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+    <CTASection headline="Compress images for social media now." />
+  </main>
+  <Footer />
+</Layout>

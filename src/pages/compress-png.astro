@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ImageCompressor from '../components/ImageCompressor.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import AdSlot from '../components/AdSlot.astro';
+
+const faqItems = [
+  {
+    question: 'Does PNG compression lose quality?',
+    answer: 'PNG uses lossless compression — every pixel is preserved exactly. ImgCompressor Pro compresses PNG by re-encoding the image data more efficiently and stripping metadata (like camera EXIF), achieving 20–40% size reduction without any quality loss.',
+  },
+  {
+    question: 'Should I use PNG or JPG for my images?',
+    answer: 'Use PNG for: logos, icons, screenshots, graphics with text, images with transparent backgrounds, or any image with sharp color transitions. Use JPEG for: photographs, complex natural scenes, and images where some quality loss is acceptable.',
+  },
+  {
+    question: 'Why is my compressed PNG still larger than a JPEG?',
+    answer: 'PNG is inherently larger than JPEG because it is lossless. JPEG can achieve much higher compression by discarding image detail. If file size is your priority and transparency is not needed, consider converting to JPEG or WebP.',
+  },
+  {
+    question: 'Can I compress a PNG with a transparent background?',
+    answer: 'Yes. The Canvas API preserves alpha channel transparency when outputting PNG. Your transparent areas will remain intact after compression.',
+  },
+];
+---
+
+<Layout
+  title="Compress PNG Online Free — PNG Compressor | ImgCompressor Pro"
+  description="Compress PNG images online for free. Reduce PNG file size without losing transparency or quality. Lossless PNG compression in your browser — no upload required."
+  keywords="compress png, png compressor, reduce png size online, png file size reducer, compress png online, lossless png compression, compress png without losing quality, png image compressor, compress png to 100kb, free png compressor, reduce png file size, high quality png compressor"
+>
+  <Nav />
+  <main>
+    <HeroSection
+      headline="Compress PNG images, keep transparency."
+      subheadline="Reduce PNG file size without losing a single pixel. Lossless compression preserves transparency and color accuracy perfectly."
+      cta="Compress PNG Now"
+    />
+
+    <AdSlot slot="leaderboard" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+
+    <div class="bg-canvas-soft dark:bg-[#0a0a0a]">
+      <ImageCompressor />
+    </div>
+
+    <section class="py-16 md:py-20 bg-canvas dark:bg-[#111] border-y border-hairline dark:border-[#1f1f1f]">
+      <div class="container-page max-w-3xl">
+        <h2 class="text-2xl font-semibold text-ink dark:text-white mb-5 tracking-tight" style="letter-spacing: -0.6px;">
+          About PNG compression.
+        </h2>
+        <div class="space-y-4 text-sm text-body dark:text-[#a1a1a1] leading-relaxed">
+          <p>
+            PNG (Portable Network Graphics) is the preferred format for images that require pixel-perfect accuracy,
+            transparency support, or contain text and sharp geometric shapes. Unlike JPEG, PNG uses lossless
+            compression — the decompressed image is bit-for-bit identical to the original.
+          </p>
+          <p>
+            PNG compression works by finding repeating patterns in pixel data and encoding them more compactly
+            using the DEFLATE algorithm. The canvas-based re-encoding removes embedded metadata (EXIF, XMP, ICC profiles)
+            and applies optimal filtering before compression, which typically reduces file size by 20–45%.
+          </p>
+          <h3 class="text-base font-semibold text-ink dark:text-white mt-6">PNG vs. other formats:</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs border-collapse">
+              <thead>
+                <tr class="border-b border-hairline dark:border-[#1f1f1f]">
+                  <th class="text-left py-2 pr-4 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Format</th>
+                  <th class="text-left py-2 pr-4 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Compression</th>
+                  <th class="text-left py-2 pr-4 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Transparency</th>
+                  <th class="text-left py-2 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Best for</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['PNG', 'Lossless', '✓ Full alpha', 'Logos, UI, screenshots'],
+                  ['JPEG', 'Lossy', '✗ None', 'Photos, complex images'],
+                  ['WebP', 'Lossy / Lossless', '✓ Full alpha', 'Web, modern browsers'],
+                ].map(row => (
+                  <tr class="border-b border-hairline dark:border-[#1f1f1f]">
+                    {row.map(cell => (
+                      <td class="py-2 pr-4 text-body dark:text-[#a1a1a1]">{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <FAQSection items={faqItems} />
+    <AdSlot slot="banner" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+    <CTASection headline="Compress your PNG files now." />
+  </main>
+  <Footer />
+</Layout>

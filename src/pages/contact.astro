@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Contact Us | ImgCompressor Pro"
+  description="Get in touch with the ImgCompressor Pro team. We're here to help with questions about image compression, privacy, partnerships, and feedback."
+  keywords="contact imgcompressorpro, image compressor support, image compression help, imgcompressorpro feedback"
+>
+  <Nav />
+  <main class="py-16 md:py-24">
+    <div class="container-page max-w-2xl">
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="inline-block text-xs font-mono text-link bg-link/10 dark:bg-link/20 px-2.5 py-1 rounded-full mb-4">Contact</span>
+        <h1 class="text-3xl md:text-4xl font-semibold text-ink dark:text-white tracking-tight mb-4" style="letter-spacing:-0.96px;">
+          Get in touch
+        </h1>
+        <p class="text-base text-body dark:text-[#a1a1a1] leading-relaxed">
+          Have a question, feedback, or a partnership inquiry? Drop us a message — we typically respond within 1–2 business days.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+
+        <!-- Contact cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            {
+              icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"/></svg>`,
+              title: 'General Support',
+              desc: 'Questions about how the tool works, browser compatibility, or feature requests.',
+              email: 'support@imgcompressorpro.com',
+              subject: 'Support Request',
+            },
+            {
+              icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>`,
+              title: 'Privacy Questions',
+              desc: 'Data handling, GDPR, privacy policy inquiries, or concerns about your data.',
+              email: 'privacy@imgcompressorpro.com',
+              subject: 'Privacy Inquiry',
+            },
+            {
+              icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>`,
+              title: 'Business & Partnerships',
+              desc: 'Advertising, API access, white-label, or integration opportunities.',
+              email: 'business@imgcompressorpro.com',
+              subject: 'Business Inquiry',
+            },
+            {
+              icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>`,
+              title: 'Report an Issue',
+              desc: 'Found a bug or something not working correctly? Let us know.',
+              email: 'bugs@imgcompressorpro.com',
+              subject: 'Bug Report',
+            },
+          ].map(card => (
+            <a
+              href={`mailto:${card.email}?subject=${encodeURIComponent(card.subject)}`}
+              class="group block rounded-xl border border-hairline dark:border-[#1f1f1f] p-5 hover:border-hairline-strong dark:hover:border-[#333] hover:bg-canvas-soft dark:hover:bg-[#111] transition-all duration-150"
+            >
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-canvas-soft dark:bg-[#1a1a1a] border border-hairline dark:border-[#2a2a2a] flex items-center justify-center text-body dark:text-[#a1a1a1] group-hover:text-ink dark:group-hover:text-white transition-colors" set:html={card.icon} />
+                <p class="text-sm font-medium text-ink dark:text-white">{card.title}</p>
+              </div>
+              <p class="text-xs text-body dark:text-[#888] leading-relaxed mb-3">{card.desc}</p>
+              <p class="text-xs font-mono text-link group-hover:underline">{card.email}</p>
+            </a>
+          ))}
+        </div>
+
+        <!-- Contact form -->
+        <div class="rounded-xl border border-hairline dark:border-[#1f1f1f] p-6 md:p-8">
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-1">Send a message</h2>
+          <p class="text-xs text-body dark:text-[#888] mb-6">Fill out the form and we'll get back to you at your email address.</p>
+
+          <form
+            id="contact-form"
+            class="space-y-4"
+            novalidate
+          >
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="name" class="block text-xs font-medium text-ink dark:text-[#ccc] mb-1.5">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Jane Smith"
+                  class="w-full h-9 px-3 text-sm rounded-lg border border-hairline dark:border-[#2a2a2a] bg-canvas dark:bg-[#111] text-ink dark:text-white placeholder:text-mute dark:placeholder:text-[#555] focus:outline-none focus:ring-2 focus:ring-link/40 focus:border-link transition-all duration-150"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-medium text-ink dark:text-[#ccc] mb-1.5">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="jane@example.com"
+                  class="w-full h-9 px-3 text-sm rounded-lg border border-hairline dark:border-[#2a2a2a] bg-canvas dark:bg-[#111] text-ink dark:text-white placeholder:text-mute dark:placeholder:text-[#555] focus:outline-none focus:ring-2 focus:ring-link/40 focus:border-link transition-all duration-150"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="subject" class="block text-xs font-medium text-ink dark:text-[#ccc] mb-1.5">Subject</label>
+              <select
+                id="subject"
+                name="subject"
+                class="w-full h-9 px-3 text-sm rounded-lg border border-hairline dark:border-[#2a2a2a] bg-canvas dark:bg-[#111] text-ink dark:text-white focus:outline-none focus:ring-2 focus:ring-link/40 focus:border-link transition-all duration-150 appearance-none cursor-pointer"
+              >
+                <option value="General Support">General Support</option>
+                <option value="Privacy Question">Privacy Question</option>
+                <option value="Business Inquiry">Business Inquiry</option>
+                <option value="Bug Report">Bug Report</option>
+                <option value="Feature Request">Feature Request</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-medium text-ink dark:text-[#ccc] mb-1.5">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="5"
+                placeholder="Describe your question or issue in detail..."
+                class="w-full px-3 py-2.5 text-sm rounded-lg border border-hairline dark:border-[#2a2a2a] bg-canvas dark:bg-[#111] text-ink dark:text-white placeholder:text-mute dark:placeholder:text-[#555] focus:outline-none focus:ring-2 focus:ring-link/40 focus:border-link transition-all duration-150 resize-y"
+              ></textarea>
+            </div>
+
+            <div id="form-error" class="hidden rounded-lg border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/20 px-4 py-3 text-xs text-red-600 dark:text-red-400"></div>
+            <div id="form-success" class="hidden rounded-lg border border-success/30 bg-success/5 dark:bg-success/10 px-4 py-3 text-xs text-success font-medium">
+              ✓ Message sent! We'll get back to you within 1–2 business days.
+            </div>
+
+            <button
+              type="submit"
+              id="submit-btn"
+              class="flex items-center justify-center gap-2 h-10 px-5 bg-ink dark:bg-white text-white dark:text-ink text-sm font-medium rounded-lg hover:bg-[#2a2a2a] dark:hover:bg-[#e5e5e5] transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <span id="btn-label">Send Message</span>
+              <svg id="btn-spinner" class="hidden w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Response time note -->
+        <div class="flex items-center gap-3 px-4 py-3 rounded-lg bg-canvas-soft dark:bg-[#111] border border-hairline dark:border-[#1f1f1f]">
+          <svg class="w-4 h-4 text-mute dark:text-[#555] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+          <p class="text-xs text-body dark:text-[#888]">
+            We typically respond within <strong class="text-ink dark:text-[#ccc] font-medium">1–2 business days</strong>. For urgent matters, email us directly at <a href="mailto:support@imgcompressorpro.com" class="text-link hover:underline">support@imgcompressorpro.com</a>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const btnLabel = document.getElementById('btn-label') as HTMLSpanElement;
+  const btnSpinner = document.getElementById('btn-spinner') as SVGElement;
+  const formError = document.getElementById('form-error') as HTMLDivElement;
+  const formSuccess = document.getElementById('form-success') as HTMLDivElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formError.classList.add('hidden');
+    formSuccess.classList.add('hidden');
+
+    const name = (form.querySelector('#name') as HTMLInputElement).value.trim();
+    const email = (form.querySelector('#email') as HTMLInputElement).value.trim();
+    const message = (form.querySelector('#message') as HTMLTextAreaElement).value.trim();
+
+    if (!name || !email || !message) {
+      formError.textContent = 'Please fill in all required fields.';
+      formError.classList.remove('hidden');
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      formError.textContent = 'Please enter a valid email address.';
+      formError.classList.remove('hidden');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    btnLabel.textContent = 'Sending…';
+    btnSpinner.classList.remove('hidden');
+
+    // Simulate submission — integrate Formspree or similar service here
+    await new Promise(r => setTimeout(r, 1200));
+
+    submitBtn.disabled = false;
+    btnLabel.textContent = 'Send Message';
+    btnSpinner.classList.add('hidden');
+    form.reset();
+    formSuccess.classList.remove('hidden');
+  });
+</script>

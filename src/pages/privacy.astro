@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Privacy Policy | ImgCompressor Pro"
+  description="ImgCompressor Pro privacy policy. All image compression happens in your browser — your images are never uploaded to our servers."
+>
+  <Nav />
+  <main class="py-16 md:py-24">
+    <div class="container-page max-w-2xl">
+      <h1 class="text-3xl font-semibold text-ink dark:text-white mb-2 tracking-tight" style="letter-spacing:-0.96px;">Privacy Policy</h1>
+      <p class="text-sm text-mute dark:text-[#666] font-mono mb-8">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+      <div class="space-y-6 text-sm text-body dark:text-[#a1a1a1] leading-relaxed">
+        <div class="rounded-lg border border-success/30 bg-success/5 dark:bg-success/10 px-5 py-4">
+          <p class="text-success font-medium text-sm">🔒 The short version: Your images never leave your device. Period.</p>
+        </div>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">Image Processing</h2>
+          <p>All image compression performed by ImgCompressor Pro occurs entirely within your web browser using the HTML5 Canvas API. No image data, file names, or metadata are transmitted to our servers at any time. Your images remain on your local device throughout the entire compression process.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">Information We Collect</h2>
+          <p>We collect standard web analytics data (page views, referrers, browser type) via privacy-respecting analytics. We do not collect personally identifiable information, image data, or file names.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">Cookies and Local Storage</h2>
+          <p>We use localStorage to remember your theme preference (light/dark mode). No third-party tracking cookies are set without your consent.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">Advertising</h2>
+          <p>This site may display advertisements via Google AdSense. Google uses cookies to serve ads based on your prior visits. You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" class="text-link hover:text-link-deep">google.com/settings/ads</a>.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">Contact</h2>
+          <p>For privacy questions, contact us at privacy@imgcompressorpro.com.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,122 @@
+---
+const toolLinks = [
+  { label: 'Compress JPG', href: '/compress-jpg' },
+  { label: 'Compress PNG', href: '/compress-png' },
+  { label: 'Compress WebP', href: '/compress-webp' },
+  { label: 'Reduce Image Size', href: '/reduce-image-size' },
+  { label: 'Optimize for Web', href: '/optimize-images-for-website' },
+];
+
+const useCaseLinks = [
+  { label: 'For Email', href: '/compress-images-for-email' },
+  { label: 'For Social Media', href: '/compress-images-for-social-media' },
+  { label: 'For Website', href: '/optimize-images-for-website' },
+  { label: 'Bulk Compression', href: '/#compressor' },
+];
+
+const resourceLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact Us', href: '/contact' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms & Conditions', href: '/terms' },
+];
+---
+
+<footer class="border-t border-hairline dark:border-[#1f1f1f] bg-canvas dark:bg-[#0a0a0a]">
+  <div class="container-page py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand column -->
+      <div class="lg:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-4 group w-fit">
+          <div class="w-7 h-7 rounded-md bg-ink dark:bg-white flex items-center justify-center">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 2h5v5H2zM9 2h5v5H9zM2 9h5v5H2zM9 9h5v5H9z" fill="currentColor" class="text-canvas dark:text-ink" opacity="0.9"/>
+              <path d="M5 5l6 6M11 5L5 11" stroke="currentColor" class="text-canvas dark:text-ink" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-ink dark:text-white">
+            ImgCompressor<span class="text-link"> Pro</span>
+          </span>
+        </a>
+        <p class="text-sm text-body dark:text-[#a1a1a1] leading-relaxed max-w-xs">
+          Professional image compression that preserves quality. Free, instant, and runs entirely in your browser.
+        </p>
+        <div class="mt-4 flex items-center gap-1">
+          <span class="inline-flex items-center gap-1 text-xs text-mute dark:text-[#666] font-mono bg-canvas-soft dark:bg-[#111] border border-hairline dark:border-[#1f1f1f] rounded-full px-2 py-0.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-success inline-block"></span>
+            100% free &amp; private
+          </span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div>
+        <h3 class="text-xs font-mono uppercase tracking-widest text-mute dark:text-[#666] mb-4">
+          Tools
+        </h3>
+        <ul class="space-y-2.5">
+          {toolLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-body dark:text-[#a1a1a1] hover:text-ink dark:hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Use Cases -->
+      <div>
+        <h3 class="text-xs font-mono uppercase tracking-widest text-mute dark:text-[#666] mb-4">
+          Use Cases
+        </h3>
+        <ul class="space-y-2.5">
+          {useCaseLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-body dark:text-[#a1a1a1] hover:text-ink dark:hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <h3 class="text-xs font-mono uppercase tracking-widest text-mute dark:text-[#666] mb-4">
+          Resources
+        </h3>
+        <ul class="space-y-2.5">
+          {resourceLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-body dark:text-[#a1a1a1] hover:text-ink dark:hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 border-t border-hairline dark:border-[#1f1f1f] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-mute dark:text-[#666]">
+        &copy; {new Date().getFullYear()} ImgCompressor Pro. All rights reserved.
+      </p>
+      <p class="text-xs text-mute dark:text-[#666] text-center">
+        All compression happens in your browser — your images are never uploaded to our servers.
+      </p>
+    </div>
+  </div>
+</footer>

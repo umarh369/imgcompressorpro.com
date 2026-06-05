@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Terms & Conditions | ImgCompressor Pro"
+  description="Terms and conditions for ImgCompressor Pro. Read about acceptable use, disclaimers, intellectual property, and your rights when using our free image compression tool."
+>
+  <Nav />
+  <main class="py-16 md:py-24">
+    <div class="container-page max-w-2xl">
+      <h1 class="text-3xl font-semibold text-ink dark:text-white mb-2 tracking-tight" style="letter-spacing:-0.96px;">Terms &amp; Conditions</h1>
+      <p class="text-sm text-mute dark:text-[#666] font-mono mb-8">Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+      <div class="space-y-6 text-sm text-body dark:text-[#a1a1a1] leading-relaxed">
+
+        <div class="rounded-lg border border-hairline dark:border-[#1f1f1f] bg-canvas-soft dark:bg-[#111] px-5 py-4">
+          <p class="text-xs text-body dark:text-[#888]">By accessing or using ImgCompressor Pro ("the Service") at <strong class="text-ink dark:text-[#ccc] font-medium">imgcompressorpro.com</strong>, you agree to be bound by these Terms &amp; Conditions. If you do not agree, please do not use the Service.</p>
+        </div>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">1. Acceptance of Terms</h2>
+          <p>These Terms &amp; Conditions ("Terms") govern your access to and use of the ImgCompressor Pro website and services. By using the Service, you confirm that you are at least 13 years of age and have the legal capacity to enter into these Terms.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">2. Description of Service</h2>
+          <p>ImgCompressor Pro provides a free, browser-based image compression tool that allows users to compress JPEG, PNG, and WebP images locally in their web browser. The Service operates entirely on the client side using the HTML5 Canvas API. No image files are uploaded to, stored on, or processed by our servers.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">3. Acceptable Use</h2>
+          <p class="mb-3">You agree to use the Service only for lawful purposes. You must not:</p>
+          <ul class="space-y-1.5 list-none">
+            {[
+              'Use the Service to compress, process, or distribute images that violate copyright or intellectual property laws.',
+              'Attempt to reverse engineer, decompile, or otherwise extract the source code of the Service.',
+              'Use automated scripts, bots, or tools to scrape, overload, or abuse the Service.',
+              'Use the Service to process, distribute, or share illegal, harmful, or offensive content.',
+              'Misrepresent your identity or affiliation when contacting us.',
+            ].map(item => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-mute dark:text-[#555] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">4. Intellectual Property</h2>
+          <p>All content on this website — including but not limited to text, design, graphics, code, logos, and the compression tool interface — is the property of ImgCompressor Pro and is protected by applicable intellectual property laws. You may not reproduce, duplicate, copy, sell, or exploit any part of the Service without our express written permission.</p>
+          <p class="mt-3">Images you compress using the Service remain your property. We claim no rights over your files at any time.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">5. No Warranties</h2>
+          <p>The Service is provided <strong class="text-ink dark:text-[#ccc] font-medium">"as is"</strong> and <strong class="text-ink dark:text-[#ccc] font-medium">"as available"</strong> without any warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not guarantee that:</p>
+          <ul class="mt-3 space-y-1.5">
+            {[
+              'The Service will be uninterrupted, timely, secure, or error-free.',
+              'Results obtained from using the Service will be accurate, reliable, or meet your specific requirements.',
+              'Any defects in the Service will be corrected.',
+            ].map(item => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-mute dark:text-[#555] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 6 6" aria-hidden="true">
+                  <circle cx="3" cy="3" r="3"/>
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">6. Limitation of Liability</h2>
+          <p>To the fullest extent permitted by law, ImgCompressor Pro and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from:</p>
+          <ul class="mt-3 space-y-1.5">
+            {[
+              'Loss of data or image quality resulting from use of the Service.',
+              'Inability to access or use the Service.',
+              'Any errors or inaccuracies in the compression output.',
+              'Unauthorized access to or alteration of your data.',
+            ].map(item => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-mute dark:text-[#555] shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 6 6" aria-hidden="true">
+                  <circle cx="3" cy="3" r="3"/>
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">7. Third-Party Services</h2>
+          <p>The Service may display third-party advertisements (e.g., Google AdSense) and may link to external websites. We are not responsible for the content, privacy practices, or terms of any third-party services. Your interactions with third-party services are governed by their respective terms and privacy policies.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">8. Changes to These Terms</h2>
+          <p>We reserve the right to modify these Terms at any time. Changes become effective immediately upon posting to this page. We will update the "Last updated" date at the top of this page when changes are made. Your continued use of the Service after any changes constitutes your acceptance of the new Terms.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">9. Governing Law</h2>
+          <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these Terms or your use of the Service shall be subject to the exclusive jurisdiction of the relevant courts.</p>
+        </section>
+
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-2">10. Contact</h2>
+          <p>If you have any questions about these Terms &amp; Conditions, please contact us at <a href="mailto:legal@imgcompressorpro.com" class="text-link hover:text-link-deep hover:underline">legal@imgcompressorpro.com</a> or visit our <a href="/contact" class="text-link hover:text-link-deep hover:underline">Contact page</a>.</p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

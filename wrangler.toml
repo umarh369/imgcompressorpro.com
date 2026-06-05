@@ -1,0 +1,11 @@
+name = "imgcompressorpro-com"
+compatibility_date = "2025-01-01"
+workers_dev = false
+
+routes = [
+  { pattern = "imgcompressorpro.com/*", zone_name = "imgcompressorpro.com" },
+  { pattern = "www.imgcompressorpro.com/*", zone_name = "imgcompressorpro.com" }
+]
+
+[assets]
+directory = "./dist"

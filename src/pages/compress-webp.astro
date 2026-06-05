@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ImageCompressor from '../components/ImageCompressor.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import AdSlot from '../components/AdSlot.astro';
+
+const faqItems = [
+  {
+    question: 'Is WebP better than JPEG?',
+    answer: 'WebP typically achieves 25–35% smaller file sizes than JPEG at equivalent visual quality. It also supports transparency (unlike JPEG) and animation (unlike both). All modern browsers support WebP, making it the recommended format for new web projects.',
+  },
+  {
+    question: 'Can I compress WebP files without losing quality?',
+    answer: 'WebP supports both lossy and lossless compression modes. Our compressor uses lossy WebP compression at your chosen quality level. Use the "Low" preset for near-lossless results, or "Balanced" for the ideal size/quality tradeoff.',
+  },
+  {
+    question: 'Does Safari support WebP?',
+    answer: 'Yes. Safari has supported WebP since version 14 (released 2020). All major browsers — Chrome, Firefox, Safari, Edge — fully support WebP.',
+  },
+  {
+    question: 'How do I convert JPG to WebP?',
+    answer: 'ImgCompressor Pro compresses WebP files but does not convert between formats. To convert JPG to WebP, you can use browser-based conversion tools or image editing software like Photoshop, GIMP, or Squoosh.',
+  },
+];
+---
+
+<Layout
+  title="Compress WebP Online Free — WebP Compressor | ImgCompressor Pro"
+  description="Compress WebP images online for free. Reduce WebP file size without losing quality. Fast, private browser-based WebP compression — no upload, no sign-up."
+  keywords="compress webp, webp compressor, reduce webp size, webp file size reducer, compress webp online, webp image compressor, compress webp without losing quality, free webp compressor, optimize webp for web, reduce webp file size"
+>
+  <Nav />
+  <main>
+    <HeroSection
+      headline="Compress WebP, the modern web format."
+      subheadline="Reduce WebP file sizes even further while keeping Google's preferred image format. Works in your browser — instantly."
+      cta="Compress WebP Now"
+    />
+
+    <AdSlot slot="leaderboard" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+
+    <div class="bg-canvas-soft dark:bg-[#0a0a0a]">
+      <ImageCompressor />
+    </div>
+
+    <section class="py-16 md:py-20 bg-canvas dark:bg-[#111] border-y border-hairline dark:border-[#1f1f1f]">
+      <div class="container-page max-w-3xl">
+        <h2 class="text-2xl font-semibold text-ink dark:text-white mb-5 tracking-tight" style="letter-spacing: -0.6px;">
+          Why WebP is the future of web images.
+        </h2>
+        <div class="space-y-4 text-sm text-body dark:text-[#a1a1a1] leading-relaxed">
+          <p>
+            WebP was developed by Google in 2010 as a successor to both JPEG and PNG. It offers lossy compression
+            comparable to JPEG but with 25–35% better compression efficiency, plus support for transparency (alpha channel)
+            and lossless compression — features that previously required separate formats.
+          </p>
+          <p>
+            Google's Core Web Vitals scoring (which directly impacts SEO) rewards fast-loading pages. Since images
+            account for the majority of page weight, using WebP instead of JPEG or PNG is one of the single most
+            effective optimizations you can make.
+          </p>
+          <h3 class="text-base font-semibold text-ink dark:text-white mt-6">WebP size comparison:</h3>
+          <div class="grid grid-cols-3 gap-3">
+            {[
+              { format: 'JPEG', size: '1.8 MB', color: 'text-body' },
+              { format: 'PNG',  size: '3.2 MB', color: 'text-body' },
+              { format: 'WebP', size: '1.1 MB', color: 'text-success font-medium' },
+            ].map(item => (
+              <div class="rounded-lg border border-hairline dark:border-[#1f1f1f] bg-canvas-soft dark:bg-[#0d0d0d] p-4 text-center">
+                <p class="text-xs font-mono text-mute dark:text-[#666] mb-1">{item.format}</p>
+                <p class={`text-lg font-semibold ${item.color} dark:text-[#a1a1a1]`}>{item.size}</p>
+              </div>
+            ))}
+          </div>
+          <p class="text-xs text-mute dark:text-[#666] font-mono">Same 4000×3000 px photograph at equivalent visual quality.</p>
+        </div>
+      </div>
+    </section>
+
+    <FAQSection items={faqItems} />
+    <AdSlot slot="banner" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+    <CTASection headline="Optimize your WebP files now." />
+  </main>
+  <Footer />
+</Layout>

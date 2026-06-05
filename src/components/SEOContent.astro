@@ -1,0 +1,59 @@
+---
+interface Props {
+  title?: string;
+  content?: string;
+}
+
+const {
+  title = 'Why use an image compressor?',
+  content = '',
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 bg-canvas dark:bg-[#111] border-t border-hairline dark:border-[#1f1f1f]">
+  <div class="container-page max-w-3xl">
+    <h2 class="text-2xl font-semibold text-ink dark:text-white mb-5 tracking-tight" style="letter-spacing: -0.6px;">
+      {title}
+    </h2>
+    <div class="prose-content text-body dark:text-[#a1a1a1] text-sm leading-relaxed space-y-4">
+      <slot>
+        <p>
+          Images are the primary contributor to web page weight. The average webpage loads over 2 MB of images,
+          and a single high-resolution photo from a modern smartphone can be 5–15 MB. Serving these uncompressed
+          directly impacts load time, bandwidth costs, search rankings, and user experience.
+        </p>
+        <p>
+          <strong class="text-ink dark:text-white font-medium">ImgCompressor Pro</strong> uses your browser's
+          Canvas API to re-encode images at your chosen quality level. For JPEG and WebP, this means a
+          lossy re-encode at 60–92% quality depending on your preset. For PNG, the canvas re-render
+          strips metadata and performs a lossless re-encode, typically achieving 20–40% size reduction.
+        </p>
+        <p>
+          Unlike server-based tools, nothing is sent over the network. This makes ImgCompressor Pro faster
+          (no upload latency), more private (your images stay on your device), and reliable even without
+          an internet connection.
+        </p>
+        <h3 class="text-base font-semibold text-ink dark:text-white mt-6">When should you compress images?</h3>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>Before uploading photos to your website or CMS</li>
+          <li>Before sending images via email (most mail servers cap attachments at 10–25 MB)</li>
+          <li>Before uploading to social media platforms that apply their own aggressive compression</li>
+          <li>Before adding images to presentations or documents</li>
+          <li>When storage space is limited on mobile devices</li>
+        </ul>
+        <h3 class="text-base font-semibold text-ink dark:text-white mt-6">What's the difference between lossy and lossless compression?</h3>
+        <p>
+          <strong class="text-ink dark:text-white font-medium">Lossy compression</strong> (used for JPEG and WebP)
+          permanently discards some image data to achieve smaller sizes. At high quality settings (90%+),
+          the difference is invisible to the human eye. At low settings (50–60%), artifacts may appear
+          as blocky regions or color banding.
+        </p>
+        <p>
+          <strong class="text-ink dark:text-white font-medium">Lossless compression</strong> (used for PNG)
+          retains every pixel exactly but achieves smaller sizes by finding more efficient ways to encode
+          the data. No quality is lost, but the savings are smaller than lossy methods.
+        </p>
+      </slot>
+    </div>
+  </div>
+</section>

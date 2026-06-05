@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="About Us | ImgCompressor Pro"
+  description="Learn about ImgCompressor Pro — a free, browser-based image compression tool built for speed, privacy, and quality. No uploads. No accounts. Just results."
+  keywords="about imgcompressorpro, image compression tool, free image optimizer, browser based image compressor, privacy first image tool"
+>
+  <Nav />
+  <main class="py-16 md:py-24">
+    <div class="container-page max-w-2xl">
+
+      <!-- Header -->
+      <div class="mb-10">
+        <span class="inline-block text-xs font-mono text-link bg-link/10 dark:bg-link/20 px-2.5 py-1 rounded-full mb-4">About Us</span>
+        <h1 class="text-3xl md:text-4xl font-semibold text-ink dark:text-white tracking-tight mb-4" style="letter-spacing:-0.96px;">
+          Built for speed.<br />Built for privacy.
+        </h1>
+        <p class="text-base text-body dark:text-[#a1a1a1] leading-relaxed">
+          ImgCompressor Pro is a free online image compression tool that runs entirely in your browser — no accounts, no uploads, no waiting.
+        </p>
+      </div>
+
+      <div class="space-y-8 text-sm text-body dark:text-[#a1a1a1] leading-relaxed">
+
+        <!-- Mission -->
+        <div class="rounded-xl border border-hairline dark:border-[#1f1f1f] p-6">
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-3">Our Mission</h2>
+          <p>
+            The web is getting heavier every year. Large images slow down websites, inflate email attachments, and eat into storage limits. We built ImgCompressor Pro to make high-quality image compression accessible to everyone — developers, designers, marketers, and everyday users — without compromising on privacy or requiring a subscription.
+          </p>
+        </div>
+
+        <!-- How it works -->
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-3">How It Works</h2>
+          <p class="mb-4">
+            Unlike most online tools, ImgCompressor Pro never sends your images to a server. All compression is performed locally using the <strong class="text-ink dark:text-white font-medium">HTML5 Canvas API</strong> built into your browser. The result is instant compression with zero privacy risk.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { step: '01', title: 'Upload', desc: 'Select or drag images directly in your browser.' },
+              { step: '02', title: 'Compress', desc: 'Canvas API processes everything locally — no upload.' },
+              { step: '03', title: 'Download', desc: 'Save individual files or grab a ZIP bundle.' },
+            ].map(item => (
+              <div class="rounded-lg bg-canvas-soft dark:bg-[#111] border border-hairline dark:border-[#1f1f1f] p-4">
+                <span class="text-xs font-mono text-mute dark:text-[#555] block mb-1">{item.step}</span>
+                <p class="text-sm font-medium text-ink dark:text-white mb-1">{item.title}</p>
+                <p class="text-xs text-body dark:text-[#888] leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- What we support -->
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-3">What We Support</h2>
+          <ul class="space-y-2">
+            {[
+              'JPEG / JPG compression — reduce file size while preserving color detail',
+              'PNG compression — lossless and lossy modes for transparent images',
+              'WebP optimization — the modern format for fast-loading pages',
+              'Bulk compression — process up to 20 images at once',
+              'Before / after preview — see exactly what changes before downloading',
+              'ZIP download — grab all compressed images in one click',
+            ].map(item => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-success shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Values -->
+        <section>
+          <h2 class="text-base font-semibold text-ink dark:text-white mb-3">Our Values</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { icon: '🔒', title: 'Privacy First', desc: 'Your images never leave your device. We have no access to your files.' },
+              { icon: '⚡', title: 'Always Free', desc: 'Core compression tools are free and will remain free — no paywalls on essentials.' },
+              { icon: '🚀', title: 'No Account Required', desc: 'Open the page, compress your image, download. That\'s it.' },
+              { icon: '🌐', title: 'Works Everywhere', desc: 'Any modern browser on any device — desktop, tablet, or mobile.' },
+            ].map(v => (
+              <div class="rounded-lg border border-hairline dark:border-[#1f1f1f] p-4">
+                <span class="text-xl mb-2 block">{v.icon}</span>
+                <p class="text-sm font-medium text-ink dark:text-white mb-1">{v.title}</p>
+                <p class="text-xs text-body dark:text-[#888] leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Contact nudge -->
+        <div class="rounded-xl border border-hairline dark:border-[#1f1f1f] bg-canvas-soft dark:bg-[#111] p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <p class="text-sm font-medium text-ink dark:text-white mb-1">Have a question or idea?</p>
+            <p class="text-xs text-body dark:text-[#888]">We'd love to hear from you. Reach out and we'll get back to you quickly.</p>
+          </div>
+          <a
+            href="/contact"
+            class="shrink-0 flex items-center h-9 px-4 bg-ink dark:bg-white text-white dark:text-ink text-sm font-medium rounded-lg hover:bg-[#2a2a2a] dark:hover:bg-[#e5e5e5] transition-colors duration-150"
+          >
+            Contact Us
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

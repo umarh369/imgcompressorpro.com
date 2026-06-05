@@ -1,0 +1,94 @@
+---
+const benefits = [
+  {
+    label: 'Faster page loads',
+    description: 'Smaller images load faster, improving Core Web Vitals scores and user experience.',
+    gradient: 'gradient-text-develop',
+  },
+  {
+    label: 'Better SEO',
+    description: 'Google factors page speed into rankings. Optimized images directly improve your search positions.',
+    gradient: 'gradient-text-preview',
+  },
+  {
+    label: 'Less storage costs',
+    description: 'Save money on CDN, hosting, and bandwidth by serving optimally compressed images.',
+    gradient: 'gradient-text-ship',
+  },
+  {
+    label: 'Better UX on mobile',
+    description: 'Mobile users on slow connections will thank you when images load in under a second.',
+    gradient: 'gradient-text-develop',
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-canvas dark:bg-[#111] border-y border-hairline dark:border-[#1f1f1f]">
+  <div class="container-page">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+
+      <!-- Left: copy -->
+      <div>
+        <span class="text-xs font-mono uppercase tracking-widest text-mute dark:text-[#666] block mb-3">
+          Why it matters
+        </span>
+        <h2
+          class="text-3xl md:text-4xl font-semibold text-ink dark:text-white tracking-tight mb-5"
+          style="letter-spacing: -1.28px;"
+        >
+          Smaller images, better everything.
+        </h2>
+        <p class="text-base text-body dark:text-[#a1a1a1] leading-relaxed mb-8">
+          Image weight is the single biggest factor in web page load time. A single unoptimized photo can be larger than the rest of your page combined. ImgCompressor Pro gives you the fastest way to fix that.
+        </p>
+
+        <ul class="space-y-4">
+          {benefits.map(b => (
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 w-5 h-5 rounded-full bg-success/10 dark:bg-success/20 flex items-center justify-center shrink-0">
+                <svg class="w-3 h-3 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <p class={`text-sm font-semibold ${b.gradient} mb-0.5`}>{b.label}</p>
+                <p class="text-sm text-body dark:text-[#a1a1a1]">{b.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Right: visual -->
+      <div class="relative">
+        <div class="rounded-xl border border-hairline dark:border-[#1f1f1f] bg-canvas-soft dark:bg-[#0d0d0d] overflow-hidden p-6" style="box-shadow: var(--shadow-pricing);">
+          <p class="text-xs font-mono uppercase tracking-widest text-mute dark:text-[#666] mb-4">Typical results</p>
+
+          {[
+            { label: 'Blog post hero', orig: '3.2 MB', comp: '580 KB', pct: 82 },
+            { label: 'Product photo',   orig: '1.8 MB', comp: '312 KB', pct: 83 },
+            { label: 'Profile picture', orig: '420 KB', comp: '68 KB',  pct: 84 },
+            { label: 'Screenshot',      orig: '890 KB', comp: '201 KB', pct: 77 },
+          ].map(row => (
+            <div class="mb-4">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-sm text-ink dark:text-white font-medium">{row.label}</span>
+                <span class="text-xs font-mono text-mute dark:text-[#666]">{row.orig} → {row.comp}</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-hairline dark:bg-[#1f1f1f] overflow-hidden">
+                <div
+                  class="h-full rounded-full bg-gradient-to-r from-[#007cf0] to-[#00dfd8]"
+                  style={`width: ${row.pct}%`}
+                ></div>
+              </div>
+              <p class="text-right mt-1 text-xs font-mono text-success">{row.pct}% smaller</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Floating badge -->
+        <div class="absolute -top-3 -right-3 bg-ink dark:bg-white rounded-full px-3 py-1 text-xs font-mono text-white dark:text-ink shadow-modal">
+          Balanced mode
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

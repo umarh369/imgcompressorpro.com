@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="500 — Server Error | ImgCompressor Pro"
+  description="Something went wrong on our end. Please try again in a moment."
+  noindex={true}
+>
+  <Nav />
+  <main class="py-24 md:py-32">
+    <div class="container-page max-w-xl text-center">
+
+      <span class="inline-block text-xs font-mono text-[#f97316] bg-[#f97316]/10 dark:bg-[#f97316]/15 px-2.5 py-1 rounded-full mb-6">Server Error</span>
+
+      <p class="text-[9rem] md:text-[12rem] font-semibold leading-none tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-ink/20 to-ink/5 dark:from-white/15 dark:to-white/5 select-none mb-2" aria-hidden="true">
+        500
+      </p>
+
+      <h1 class="text-2xl md:text-3xl font-semibold text-ink dark:text-white tracking-tight mb-3" style="letter-spacing:-0.6px;">
+        Something went wrong
+      </h1>
+
+      <p class="text-sm text-body dark:text-[#a1a1a1] leading-relaxed mb-10 max-w-sm mx-auto">
+        We hit an unexpected error on our end. It's not you — it's us. Please try again in a moment, or go back to the homepage.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href="/"
+          class="flex items-center h-10 px-5 bg-ink dark:bg-white text-white dark:text-ink text-sm font-medium rounded-lg hover:bg-[#2a2a2a] dark:hover:bg-[#e5e5e5] transition-colors duration-150"
+        >
+          Go to Homepage
+        </a>
+        <button
+          onclick="window.location.reload()"
+          class="flex items-center h-10 px-5 border border-hairline dark:border-[#2a2a2a] text-ink dark:text-white text-sm font-medium rounded-lg hover:bg-canvas-soft dark:hover:bg-[#111] transition-colors duration-150 cursor-pointer"
+        >
+          Try Again
+        </button>
+      </div>
+
+      <!-- Status note -->
+      <div class="mt-14 pt-8 border-t border-hairline dark:border-[#1f1f1f]">
+        <p class="text-xs text-body dark:text-[#888] leading-relaxed">
+          If this keeps happening, <a href="/contact" class="text-link hover:underline">contact us</a> and we'll look into it.
+        </p>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>

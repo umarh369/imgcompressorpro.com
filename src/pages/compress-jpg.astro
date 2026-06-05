@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ImageCompressor from '../components/ImageCompressor.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import AdSlot from '../components/AdSlot.astro';
+
+const faqItems = [
+  {
+    question: 'What is the best way to compress a JPG file?',
+    answer: 'The best approach depends on your use case. For websites, aim for 70–85% quality. For email attachments, 60–75% gives good results with small file sizes. ImgCompressor Pro\'s "Balanced" preset at 80% quality is optimal for most purposes.',
+  },
+  {
+    question: 'Does compressing a JPG reduce its quality permanently?',
+    answer: 'Yes, JPEG compression is lossy — once quality is reduced and the file is saved, the lost data cannot be recovered. This is why we recommend working from original files and not re-compressing a JPEG that\'s already been compressed.',
+  },
+  {
+    question: 'How small can I compress a JPG without visible quality loss?',
+    answer: 'At 80% quality (our Balanced preset), most JPEG images look identical to the original to the human eye while achieving 40–60% size reduction. Below 70%, subtle artifacts may appear in smooth gradients and skies.',
+  },
+  {
+    question: 'What is the difference between JPG and JPEG?',
+    answer: 'JPG and JPEG refer to the same file format. "JPEG" stands for Joint Photographic Experts Group. "JPG" was the shortened version introduced because early Windows systems required 3-letter file extensions. Both extensions produce identical files.',
+  },
+];
+---
+
+<Layout
+  title="Compress JPG Online Free — JPEG Compressor | ImgCompressor Pro"
+  description="Compress JPG and JPEG images online for free. Reduce JPEG file size by 50–85% without visible quality loss. No upload required — works entirely in your browser."
+  keywords="compress jpg, jpg compressor, jpeg compressor, compress jpeg online, reduce jpg size online, reduce jpg file size, compress jpg without losing quality, jpg image compressor, compress jpg to 100kb, compress jpg to 50kb, high quality jpg compressor, free jpg compressor"
+>
+  <Nav />
+  <main>
+    <HeroSection
+      headline="Compress JPG images instantly."
+      subheadline="Reduce JPEG file size by up to 85% without visible quality loss. Free, private, and instant — no upload required."
+      cta="Compress JPG Now"
+    />
+
+    <AdSlot slot="leaderboard" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+
+    <div class="bg-canvas-soft dark:bg-[#0a0a0a]">
+      <ImageCompressor />
+    </div>
+
+    <!-- JPG-specific content -->
+    <section class="py-16 md:py-20 bg-canvas dark:bg-[#111] border-y border-hairline dark:border-[#1f1f1f]">
+      <div class="container-page max-w-3xl">
+        <h2 class="text-2xl font-semibold text-ink dark:text-white mb-5 tracking-tight" style="letter-spacing: -0.6px;">
+          About JPEG compression.
+        </h2>
+        <div class="space-y-4 text-sm text-body dark:text-[#a1a1a1] leading-relaxed">
+          <p>
+            JPEG (Joint Photographic Experts Group) is the most widely used image format on the web, particularly
+            for photographs and complex imagery with smooth color gradients. Its lossy compression algorithm is
+            exceptionally effective for natural scenes, achieving 10:1 compression ratios with minimal perceptual quality loss.
+          </p>
+          <p>
+            JPEG compression works by dividing the image into 8×8 pixel blocks, converting them to frequency space
+            using Discrete Cosine Transform (DCT), and discarding high-frequency details that the human eye is
+            least sensitive to. The "quality" setting controls how aggressively these high-frequency details are discarded.
+          </p>
+          <h3 class="text-base font-semibold text-ink dark:text-white mt-6">When to use each preset:</h3>
+          <ul class="list-disc pl-5 space-y-2">
+            <li><strong class="text-ink dark:text-white">Low Compression (92% quality)</strong> — For portfolio images, print-ready web photos, and editorial content where quality is paramount.</li>
+            <li><strong class="text-ink dark:text-white">Balanced (80% quality)</strong> — The sweet spot for most web use. Reduces size by 40–60% with virtually no visible degradation.</li>
+            <li><strong class="text-ink dark:text-white">Maximum (60% quality)</strong> — For thumbnails, social media previews, and situations where smallest possible size matters most.</li>
+          </ul>
+          <p>
+            JPEG is not suitable for images with sharp edges, text, or large areas of solid color. For those use cases,
+            use <a href="/compress-png" class="text-link hover:text-link-deep">PNG compression</a> instead.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <FAQSection items={faqItems} />
+    <AdSlot slot="banner" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+    <CTASection headline="Ready to compress your JPGs?" />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,22 @@
+{
+  "name": "ImgCompressor Pro",
+  "short_name": "ImgCompressor",
+  "description": "Free online image compression tool. Compress JPG, PNG, and WebP images instantly.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#171717",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

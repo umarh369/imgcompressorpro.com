@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ImageCompressor from '../components/ImageCompressor.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+import BenefitsSection from '../components/BenefitsSection.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import SEOContent from '../components/SEOContent.astro';
+import AdSlot from '../components/AdSlot.astro';
+---
+
+<Layout
+  title="Image Compressor — Free Online Image Compression Tool | ImgCompressor Pro"
+  description="Free image compressor online. Compress JPG, PNG & WebP images without losing quality. Reduce image file size up to 85% instantly in your browser — no upload, no sign-up."
+  keywords="image compressor, compress image online, online image compressor, free image compressor, image compressor online, reduce image size, photo compressor, compress jpg, compress png, compress webp, image optimizer, reduce image file size, bulk image compressor, image compression tool, optimize images for web, compress photos online, compress image without losing quality, image size reducer, website image optimizer, fast image compressor, compress image to 100kb, compress image to 50kb, compress image to 20kb, compress image to 200kb, compress image for email, compress image for website, compress image for discord, reduce jpg size online, reduce png size online"
+  ogImageAlt="ImgCompressor Pro — Free Online Image Compressor for JPG, PNG and WebP"
+>
+  <Nav />
+
+  <main id="main-content">
+    <!-- Hero -->
+    <HeroSection />
+
+    <!-- Ad slot: below hero -->
+    <div class="bg-canvas-soft dark:bg-[#0a0a0a]">
+      <AdSlot slot="leaderboard" label="Advertisement" />
+    </div>
+
+    <!-- Compressor tool -->
+    <div class="bg-canvas-soft dark:bg-[#0a0a0a]">
+      <ImageCompressor />
+    </div>
+
+    <!-- Features -->
+    <FeaturesSection />
+
+    <!-- Ad slot: between sections -->
+    <div class="bg-canvas-soft dark:bg-[#0a0a0a]">
+      <AdSlot slot="banner" label="Advertisement" />
+    </div>
+
+    <!-- Benefits -->
+    <BenefitsSection />
+
+    <!-- Before/After showcase section -->
+    <section class="py-20 md:py-28 bg-canvas-soft dark:bg-[#0a0a0a]">
+      <div class="container-page">
+        <div class="text-center mb-10">
+          <span class="text-xs font-mono uppercase tracking-widest text-mute dark:text-[#666] block mb-3">
+            Visual proof
+          </span>
+          <h2
+            class="text-3xl md:text-4xl font-semibold text-ink dark:text-white tracking-tight"
+            style="letter-spacing: -1.28px;"
+          >
+            See the difference yourself.
+          </h2>
+          <p class="mt-3 text-base text-body dark:text-[#a1a1a1] max-w-md mx-auto">
+            Drag the slider in the compressor above after compressing your first image to compare original vs. compressed quality side by side.
+          </p>
+        </div>
+
+        <!-- Format support grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          {[
+            {
+              format: 'JPG / JPEG',
+              icon: '🖼️',
+              desc: 'Lossy compression. Best for photos and complex imagery.',
+              href: '/compress-jpg',
+              gradient: 'from-[#007cf0] to-[#00dfd8]',
+            },
+            {
+              format: 'PNG',
+              icon: '🎨',
+              desc: 'Lossless compression. Best for graphics, logos, and screenshots.',
+              href: '/compress-png',
+              gradient: 'from-[#7928ca] to-[#ff0080]',
+            },
+            {
+              format: 'WebP',
+              icon: '⚡',
+              desc: 'Modern format with superior compression. Best for web.',
+              href: '/compress-webp',
+              gradient: 'from-[#ff4d4d] to-[#f9cb28]',
+            },
+          ].map(fmt => (
+            <a
+              href={fmt.href}
+              class="rounded-lg border border-hairline dark:border-[#1f1f1f] bg-canvas dark:bg-[#111] p-5 hover:border-hairline-strong dark:hover:border-[#333] transition-all duration-200 group block"
+              style="box-shadow: var(--shadow-card);"
+            >
+              <div class={`text-2xl mb-3`}>{fmt.icon}</div>
+              <h3 class={`text-base font-semibold bg-gradient-to-r ${fmt.gradient} bg-clip-text text-transparent mb-1`}>
+                {fmt.format}
+              </h3>
+              <p class="text-sm text-body dark:text-[#a1a1a1]">{fmt.desc}</p>
+              <span class="mt-3 text-xs text-link flex items-center gap-1 group-hover:gap-2 transition-all">
+                Learn more <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <FAQSection />
+
+    <!-- SEO content -->
+    <SEOContent title="The Best Free Image Compressor Online">
+      <p>
+        If you're looking for a reliable, fast <strong class="text-ink dark:text-white font-medium">image compressor</strong> that works directly in your browser — you've found it. ImgCompressor Pro is a free online image compressor that lets you <strong class="text-ink dark:text-white font-medium">compress image online</strong> without uploading anything to a server. Your files stay on your device, compression is instant, and there are no file size limits or hidden costs.
+      </p>
+
+      <h3 class="text-base font-semibold text-ink dark:text-white mt-6">Compress Images Online Without Losing Quality</h3>
+      <p>
+        The most common concern about image compression is quality loss. The good news: with the right preset, you can <strong class="text-ink dark:text-white font-medium">compress image without losing quality</strong> — reducing file size by 40–85% while keeping photos looking virtually identical to the original. Our image compression tool offers three presets optimized for different use cases:
+      </p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong class="text-ink dark:text-white">Low Compression (92%)</strong> — Near-lossless results. Best for portfolio images and editorial content where quality is non-negotiable.</li>
+        <li><strong class="text-ink dark:text-white">Balanced (80%)</strong> — The sweet spot. Reduces file size 40–60% with no perceptible quality change. Recommended for most uses.</li>
+        <li><strong class="text-ink dark:text-white">Maximum (60%)</strong> — Smallest output. Best for thumbnails, previews, and hitting a specific file size target.</li>
+      </ul>
+
+      <h3 class="text-base font-semibold text-ink dark:text-white mt-6">Compress JPG, PNG, and WebP — All in One Tool</h3>
+      <p>
+        Our <strong class="text-ink dark:text-white font-medium">online image compressor</strong> supports the three most-used formats on the web:
+      </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>
+          <strong class="text-ink dark:text-white">Compress JPG online</strong> — JPEG is the standard for photographs. Our fast image compressor can <strong class="text-ink dark:text-white font-medium">reduce jpg size online</strong> by up to 85% at 80% quality. A 5 MB photo can drop below 500 KB with no visible difference. Ideal for blog posts, product pages, and email attachments.
+        </li>
+        <li>
+          <strong class="text-ink dark:text-white">Compress PNG online</strong> — PNG uses lossless compression that preserves transparency and crisp edges. Our photo compressor strips metadata and re-encodes more efficiently, typically achieving 20–45% reduction. Perfect for logos, screenshots, and UI graphics. <strong class="text-ink dark:text-white font-medium">Reduce png size online</strong> in one click.
+        </li>
+        <li>
+          <strong class="text-ink dark:text-white">Compress WebP online</strong> — WebP is Google's modern format, 25–35% smaller than JPEG at equivalent quality. Use our <strong class="text-ink dark:text-white font-medium">image optimizer</strong> to squeeze WebP files even further and maximize web performance.
+        </li>
+      </ul>
+
+      <h3 class="text-base font-semibold text-ink dark:text-white mt-6">Compress Images to Any Target File Size</h3>
+      <p>
+        Need to hit a specific limit? Whether you need to <strong class="text-ink dark:text-white font-medium">compress image to 100kb</strong>, <strong class="text-ink dark:text-white font-medium">compress image to 50kb</strong>, <strong class="text-ink dark:text-white font-medium">compress image to 20kb</strong>, or <strong class="text-ink dark:text-white font-medium">compress image to 200kb</strong>, our quality slider gives you precise control over the output. Adjust until the displayed output size matches your requirement, then download instantly.
+      </p>
+
+      <h3 class="text-base font-semibold text-ink dark:text-white mt-6">Built for Every Use Case</h3>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>
+          <strong class="text-ink dark:text-white">Compress image for website</strong> — Slow websites lose visitors and rankings. Our <strong class="text-ink dark:text-white font-medium">website image optimizer</strong> helps you <strong class="text-ink dark:text-white font-medium">optimize images for web</strong>, improving Google Core Web Vitals (LCP) and PageSpeed scores directly.
+        </li>
+        <li>
+          <strong class="text-ink dark:text-white">Compress image for email</strong> — Gmail, Outlook, and most providers cap attachments at 10–25 MB. Pre-compressing with our <strong class="text-ink dark:text-white font-medium">free image compressor</strong> ensures photos arrive without bouncing or slowing delivery.
+        </li>
+        <li>
+          <strong class="text-ink dark:text-white">Compress image for Discord</strong> — Discord limits free users to 8 MB uploads. Use our <strong class="text-ink dark:text-white font-medium">image size reducer</strong> to get under that limit without sacrificing sharpness.
+        </li>
+        <li>
+          <strong class="text-ink dark:text-white">Bulk image compressor</strong> — Drop up to 20 files at once and compress them all simultaneously. Download individually or as a single ZIP archive — perfect for batch workflows.
+        </li>
+      </ul>
+
+      <h3 class="text-base font-semibold text-ink dark:text-white mt-6">Why ImgCompressor Pro?</h3>
+      <p>
+        Unlike most tools that send your photos to a remote server, our <strong class="text-ink dark:text-white font-medium">image compression tool</strong> uses your browser's Canvas API — meaning everything stays on your device. The result: zero upload time, complete privacy, no file size restrictions, and 100% free access with no account required. Whether you need to <strong class="text-ink dark:text-white font-medium">compress photos online</strong> for web, email, social media, or storage, ImgCompressor Pro is the <strong class="text-ink dark:text-white font-medium">high quality image compressor</strong> you can rely on every time.
+      </p>
+    </SEOContent>
+
+    <!-- Ad slot: before footer -->
+    <div class="bg-canvas dark:bg-[#111]">
+      <AdSlot slot="banner" label="Advertisement" />
+    </div>
+
+    <!-- Quick links to company pages -->
+    <section class="py-12 bg-canvas dark:bg-[#0a0a0a] border-t border-hairline dark:border-[#1f1f1f]">
+      <div class="container-page">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <p class="text-xs font-mono uppercase tracking-widest text-mute dark:text-[#555] mb-1">ImgCompressor Pro</p>
+            <p class="text-sm text-body dark:text-[#a1a1a1]">Free, private, and always in your browser.</p>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            {[
+              { label: 'About Us', href: '/about', icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+              { label: 'Contact Us', href: '/contact', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+              { label: 'Privacy Policy', href: '/privacy', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+              { label: 'Terms & Conditions', href: '/terms', icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' },
+            ].map(link => (
+              <a
+                href={link.href}
+                class="flex items-center gap-1.5 h-8 px-3 text-xs text-body dark:text-[#a1a1a1] border border-hairline dark:border-[#2a2a2a] rounded-full hover:text-ink dark:hover:text-white hover:border-hairline-strong dark:hover:border-[#444] hover:bg-canvas-soft dark:hover:bg-[#111] transition-all duration-150"
+              >
+                <svg class="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={link.icon} />
+                </svg>
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <CTASection />
+  </main>
+
+  <Footer />
+</Layout>

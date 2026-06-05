@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ImageCompressor from '../components/ImageCompressor.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import AdSlot from '../components/AdSlot.astro';
+
+const faqItems = [
+  {
+    question: 'What is the maximum image size for email attachments?',
+    answer: 'Most email providers limit attachments to 10–25 MB total. Gmail allows up to 25 MB, Outlook up to 20 MB. However, best practice is to keep individual images under 1 MB and total email size under 5 MB for reliable delivery.',
+  },
+  {
+    question: 'What image size is recommended for inline email images?',
+    answer: 'For inline HTML email images, keep them under 100 KB each. Use a maximum width of 600px (the standard email template width). Use JPEG at 70–80% quality for photographs and PNG for logos and graphics with transparency.',
+  },
+  {
+    question: 'Why do my email images look blurry in some clients?',
+    answer: 'Some email clients (especially on high-DPI/Retina displays) scale images up if they\'re too small. Use images that are 2× your intended display size (e.g., serve a 1200px image displayed at 600px). This will be larger but look sharp on all displays.',
+  },
+  {
+    question: 'Is it better to attach images or embed them in emails?',
+    answer: 'For marketing emails, embedding images (hosting them on a server and referencing the URL) is preferred — it keeps email size small and allows tracking. For personal emails with photos, attaching is simpler. Always compress before doing either.',
+  },
+];
+---
+
+<Layout
+  title="Compress Images for Email — Reduce Attachment Size | ImgCompressor Pro"
+  description="Compress images for email attachments and inline use. Reduce image file size for Gmail, Outlook, and other email clients. Free browser-based image compressor."
+  keywords="compress image for email, compress images for email, reduce image size for email, email image compressor, jpg for email, email attachment size reducer, compress photo for email, reduce image file size for email, compress jpeg for email, photo compressor for email"
+>
+  <Nav />
+  <main>
+    <HeroSection
+      headline="Compress images for email delivery."
+      subheadline="Avoid bounced emails and slow loading. Compress images to ideal sizes for Gmail, Outlook, and every email client."
+      cta="Compress for Email"
+    />
+
+    <AdSlot slot="leaderboard" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+    <div class="bg-canvas-soft dark:bg-[#0a0a0a]"><ImageCompressor /></div>
+
+    <section class="py-16 bg-canvas dark:bg-[#111] border-y border-hairline dark:border-[#1f1f1f]">
+      <div class="container-page max-w-3xl">
+        <h2 class="text-2xl font-semibold text-ink dark:text-white mb-5 tracking-tight" style="letter-spacing: -0.6px;">
+          Email image size guidelines.
+        </h2>
+        <div class="space-y-4 text-sm text-body dark:text-[#a1a1a1] leading-relaxed">
+          <p>
+            Sending images by email is one of the most common use cases for image compression. Whether you're
+            sharing vacation photos, sending marketing materials, or attaching documents, uncompressed images
+            can exceed email size limits and cause delivery failures.
+          </p>
+          <h3 class="text-base font-semibold text-ink dark:text-white mt-6">Email attachment limits by provider:</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs border-collapse">
+              <thead>
+                <tr class="border-b border-hairline dark:border-[#1f1f1f]">
+                  <th class="text-left py-2 pr-6 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Provider</th>
+                  <th class="text-left py-2 pr-6 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Limit</th>
+                  <th class="text-left py-2 font-mono text-mute dark:text-[#666] uppercase tracking-wider">Recommendation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['Gmail', '25 MB', 'Keep under 10 MB'],
+                  ['Outlook / Hotmail', '20 MB', 'Keep under 8 MB'],
+                  ['Yahoo Mail', '25 MB', 'Keep under 10 MB'],
+                  ['Apple Mail / iCloud', '20 MB', 'Keep under 8 MB'],
+                ].map(row => (
+                  <tr class="border-b border-hairline dark:border-[#1f1f1f]">
+                    {row.map(cell => (
+                      <td class="py-2 pr-6 text-body dark:text-[#a1a1a1]">{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Use the <strong class="text-ink dark:text-white">"Balanced"</strong> preset for email images — it reduces
+            file size by 40–60% while keeping photographs looking sharp and professional.
+            For multiple photos, use the bulk compression feature and download as a ZIP.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <FAQSection items={faqItems} />
+    <AdSlot slot="banner" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+    <CTASection headline="Compress images for your next email." />
+  </main>
+  <Footer />
+</Layout>

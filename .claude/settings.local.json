@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npm install @tailwindcss/vite tailwindcss jszip)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:4321/robots.txt)",
+      "Bash(pkill -f \"astro dev\")",
+      "Bash(NODE_OPTIONS=--use-system-ca npx wrangler deploy)"
+    ]
+  }
+}

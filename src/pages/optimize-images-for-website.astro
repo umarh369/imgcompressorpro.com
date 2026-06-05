@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ImageCompressor from '../components/ImageCompressor.astro';
+import FAQSection from '../components/FAQSection.astro';
+import CTASection from '../components/CTASection.astro';
+import AdSlot from '../components/AdSlot.astro';
+
+const faqItems = [
+  {
+    question: 'What image size is best for a website?',
+    answer: 'It depends on the use case: hero images should be max 1920px wide and under 200 KB; product images typically 800–1200px wide and under 100 KB; thumbnails under 400px wide and under 30 KB. Always serve images at the size they\'ll be displayed, not larger.',
+  },
+  {
+    question: 'How do images affect SEO?',
+    answer: 'Google\'s Core Web Vitals (LCP, FID, CLS) are direct ranking signals. Large images are the primary cause of poor LCP (Largest Contentful Paint) scores. Optimized images can dramatically improve your Core Web Vitals, directly boosting search rankings.',
+  },
+  {
+    question: 'What is Google\'s recommended image format for websites?',
+    answer: 'Google recommends WebP for websites as it\'s 25–35% smaller than JPEG at equivalent quality. Google\'s PageSpeed Insights tool explicitly recommends "Serve images in next-gen formats" when it detects JPEG or PNG images that could be converted to WebP.',
+  },
+  {
+    question: 'Does image compression affect Core Web Vitals?',
+    answer: 'Yes, significantly. Large images are the #1 cause of poor LCP scores. Compressing your images with our tool reduces the bytes the browser needs to download, directly improving LCP and your overall Core Web Vitals score.',
+  },
+];
+---
+
+<Layout
+  title="Optimize Images for Website — Improve Core Web Vitals | ImgCompressor Pro"
+  description="Optimize images for your website to improve Core Web Vitals, SEO, and page load speed. Compress JPG, PNG, WebP for web use. Free browser-based optimizer."
+  keywords="optimize images for website, optimize images for web, website image optimizer, image optimization for web, web image compressor, core web vitals images, seo image optimization, compress image for website, image compressor for website, fast image compressor, webpage image optimizer"
+>
+  <Nav />
+  <main>
+    <HeroSection
+      headline="Optimize images for faster websites."
+      subheadline="Improve Core Web Vitals, boost SEO rankings, and deliver faster experiences by serving optimally compressed images."
+      cta="Optimize Images Now"
+    />
+
+    <AdSlot slot="leaderboard" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+    <div class="bg-canvas-soft dark:bg-[#0a0a0a]"><ImageCompressor /></div>
+
+    <section class="py-16 bg-canvas dark:bg-[#111] border-y border-hairline dark:border-[#1f1f1f]">
+      <div class="container-page max-w-3xl">
+        <h2 class="text-2xl font-semibold text-ink dark:text-white mb-5 tracking-tight" style="letter-spacing: -0.6px;">
+          Image optimization for Core Web Vitals.
+        </h2>
+        <div class="space-y-4 text-sm text-body dark:text-[#a1a1a1] leading-relaxed">
+          <p>
+            Google's Core Web Vitals are a set of performance metrics that directly affect search engine rankings.
+            The Largest Contentful Paint (LCP) metric — one of the three Core Web Vitals — measures how quickly
+            the largest image or text block on a page loads. Unoptimized images are the #1 cause of poor LCP scores.
+          </p>
+          <h3 class="text-base font-semibold text-ink dark:text-white mt-6">Web image optimization checklist:</h3>
+          <ul class="list-disc pl-5 space-y-2">
+            <li>Compress all images before upload (use our tool above)</li>
+            <li>Use WebP format for modern browsers — <a href="/compress-webp" class="text-link hover:text-link-deep">see WebP benefits</a></li>
+            <li>Serve images at the correct display size — don't serve 4K images for a 400px thumbnail</li>
+            <li>Use lazy loading for below-the-fold images (<code class="font-mono text-xs bg-canvas-soft-2 dark:bg-[#1a1a1a] rounded px-1">loading="lazy"</code>)</li>
+            <li>Use responsive images with <code class="font-mono text-xs bg-canvas-soft-2 dark:bg-[#1a1a1a] rounded px-1">srcset</code> to serve correct sizes per viewport</li>
+            <li>Preload your LCP image with <code class="font-mono text-xs bg-canvas-soft-2 dark:bg-[#1a1a1a] rounded px-1">&lt;link rel="preload"&gt;</code></li>
+          </ul>
+          <p>
+            Following these steps can dramatically improve your Google PageSpeed score from 40s to 90s and
+            improve your search visibility.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <FAQSection items={faqItems} />
+    <AdSlot slot="banner" class="bg-canvas-soft dark:bg-[#0a0a0a]" />
+    <CTASection headline="Optimize your website images now." />
+  </main>
+  <Footer />
+</Layout>
