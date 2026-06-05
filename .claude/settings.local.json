@@ -6,7 +6,10 @@
       "Bash(npm run *)",
       "Bash(curl -s http://localhost:4321/robots.txt)",
       "Bash(pkill -f \"astro dev\")",
-      "Bash(NODE_OPTIONS=--use-system-ca npx wrangler deploy)"
+      "Bash(NODE_OPTIONS=--use-system-ca npx wrangler deploy)",
+      "Bash(git push *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)"
     ]
   }
 }
